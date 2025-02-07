@@ -1,3 +1,5 @@
+import { use } from "react";
+
 export const paths = {
 	home: "/",
 	checkout: "/checkout",
@@ -49,6 +51,8 @@ export const paths = {
 	},
 	dashboard: {
 		overview: "/dashboard",
+		users: "/dashboard/users",
+		programs: "/dashboard/programs",
 		settings: {
 			account: "/dashboard/settings/account",
 			billing: "/dashboard/settings/billing",

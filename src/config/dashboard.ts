@@ -21,12 +21,9 @@ export const dashboardConfig = {
 		{
 			key: "dashboards",
 			title: "Dashboards",
-			items: [{ key: "overview", title: "Overview", href: paths.dashboard.overview, icon: "house" }],
-		},
-		{
-			key: "misc",
-			title: "Misc",
-			items: [{ key: "blank", title: "Blank", href: paths.dashboard.blank, icon: "file-dashed" }],
-		},
+			items: [{ key: "users", title: "Brukere", href: paths.dashboard.users, icon: "person" },
+				{ key: "programs", title: "Programmer", href: paths.dashboard.programs, icon: "person" },
+			],
+		}
 	],
 } satisfies DashboardConfig;
