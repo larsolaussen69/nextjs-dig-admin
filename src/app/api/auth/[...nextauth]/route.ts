@@ -8,7 +8,7 @@ import NextAuthHandler from "next-auth/next";
 
 
 // Force NextAuth to run on Node.js (not Edge)
-export const runtime = "nodejs";
+// export const runtime = "nodejs";
 
 // PostgreSQL Connection
 const pool = new Pool({
