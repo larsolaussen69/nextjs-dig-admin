@@ -1,3 +1,4 @@
+import type * as React from "react";
 import { getAllUsers } from "@/lib/sql/users";
 import UserList from "@/components/dashboard/user/userlist";
 

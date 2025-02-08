@@ -1,4 +1,3 @@
-import { use } from "react";
 
 export const paths = {
 	home: "/",
@@ -53,6 +52,8 @@ export const paths = {
 		overview: "/dashboard",
 		users: "/dashboard/users",
 		programs: "/dashboard/programs",
+		userdetails: (userId: string) => `/dashboard/users/${userId}`,
+
 		settings: {
 			account: "/dashboard/settings/account",
 			billing: "/dashboard/settings/billing",

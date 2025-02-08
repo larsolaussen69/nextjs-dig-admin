@@ -1,11 +1,13 @@
 "use client";
+
+import type * as React from "react";
 import { useState } from "react";
 import { List, ListItemButton, ListItemText, Paper, Typography, Box, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
 import { CategoriesData, Exercise, Program } from "@/lib/definitions";
 import { motion } from "framer-motion";
 import { PanelGroup, Panel, PanelResizeHandle } from "react-resizable-panels";
 
-export default function ProgramsPage({ categoriesData }: { categoriesData: CategoriesData }) {
+export default function ProgramsList({ categoriesData }: { categoriesData: CategoriesData }) {
     const [selectedCategory, setSelectedCategory] = useState<string | "">(Object.keys(categoriesData)[0] || ""); // Default to first category
     const [selectedProgram, setSelectedProgram] = useState<string | null>(null);
     const [selectedExercises, setSelectedExercises] = useState<Exercise[]>([]);

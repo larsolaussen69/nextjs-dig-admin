@@ -1,5 +1,6 @@
 "use client";
 
+import type * as React from "react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { User } from "@/lib/definitions";
@@ -78,7 +79,7 @@ export default function UserList({ users }: { users: User[] }) {
                                     sx={{
                                         "&:hover": { backgroundColor: "rgba(0, 0, 255, 0.1)", cursor: "pointer" }
                                     }}
-                                    onClick={() => router.push(`/users/${user.id}`)} // ✅ Navigate to user details
+                                    onClick={() => router.push(`users/${user.id}`)} // ✅ Navigate to user details
                                 >
                                     <TableCell>{user.name}</TableCell>
                                     <TableCell>{user.email}</TableCell>

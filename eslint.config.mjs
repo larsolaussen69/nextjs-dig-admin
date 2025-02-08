@@ -25,16 +25,14 @@ export default [
 	...ts.configs.recommended,
 	{
 		rules: {
-			"@typescript-eslint/no-unused-vars": [
-				"error",
-				{
-					ignoreRestSiblings: true,
-					argsIgnorePattern: "^_",
-					varsIgnorePattern: "^_",
-					caughtErrorsIgnorePattern: "^_",
-				},
-			],
+			"@typescript-eslint/no-unused-vars": "off",
 			"@typescript-eslint/no-empty-object-type": "off",
+			"unicorn/template-indent": "off", // Disable template indentation rule
+			"unicorn/no-array-for-each": "off", // Allow array forEach
+			"unicorn/catch-error-name": "off", // Don't enforce naming 'error' in catch
+			"@typescript-eslint/no-explicit-any": "off", // Allow explicit any
+			"@typescript-eslint/explicit-module-boundary-types": "off"
+
 		},
 	},
 	configPrettier,
@@ -59,6 +57,9 @@ export default [
 			"unicorn/no-null": "off",
 			"unicorn/no-nested-ternary": "off",
 			"unicorn/no-array-reduce": "off",
+			"unicorn/template-indent": "off", // Disable template indentation rule
+			"unicorn/no-array-for-each": "off", // Allow array forEach
+			"unicorn/catch-error-name": "off", // Don't enforce naming 'error' in catch
 		},
 	},
 	pluginReact.configs.flat.recommended,
