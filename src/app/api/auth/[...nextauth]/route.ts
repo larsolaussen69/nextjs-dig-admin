@@ -4,6 +4,8 @@ import PgAdapter from "@auth/pg-adapter";
 import { Pool } from "pg";
 import bcrypt from "bcryptjs";
 import { NextRequest, NextResponse } from "next/server";
+import NextAuthHandler from "next-auth/next";
+
 
 // Force NextAuth to run on Node.js (not Edge)
 export const runtime = "nodejs";
@@ -72,13 +74,8 @@ const authOptions = {
   secret: process.env.NEXTAUTH_SECRET,
 };
 
-// ✅ Correct Export for Next.js App Router
+// ✅ Fix: Use NextAuth correctly
 const handler = NextAuth(authOptions);
 
-export const GET = async (req: NextRequest) => {
-  return handler(req, new NextResponse());
-};
-
-export const POST = async (req: NextRequest) => {
-  return handler(req, new NextResponse());
-};
+// ✅ Fix: Correctly pass request to NextAuth
+export { handler as GET, handler as POST };
