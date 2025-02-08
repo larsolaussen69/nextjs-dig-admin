@@ -12,8 +12,11 @@ export const runtime = "nodejs";
 
 // PostgreSQL Connection
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL, // Ensure this is set in .env
-});
+    connectionString: process.env.DATABASE_URL,
+    ssl: process.env.DATABASE_URL?.includes("sslmode=require")
+      ? { rejectUnauthorized: false } // ✅ Allow insecure SSL if required
+      : undefined, // ✅ No SSL for local dev
+  });
 
 const authOptions = {
     session: { strategy: "jwt" as SessionStrategy }, // ✅ Fix: Explicitly cast strategy type
