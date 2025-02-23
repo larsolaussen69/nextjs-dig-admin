@@ -70,7 +70,7 @@ const authOptions = {
       options: {
         httpOnly: true,
         secure: process.env.NODE_ENV === "production",
-        sameSite: "lax" as "lax", // ✅ Corrected to lowercase "lax"
+        sameSite: "lax" as const, // ✅ Corrected to lowercase "lax"
         path: "/",
       },
     },

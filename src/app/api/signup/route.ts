@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import { Pool } from "pg";
+import * as React from "react";
 
 // PostgreSQL connection pool
 const pool = new Pool({

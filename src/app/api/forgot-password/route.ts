@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { Pool } from "pg";
-import { randomBytes } from "crypto";
+import { randomBytes } from "node:crypto";
 
 const pool = new Pool({
   connectionString: process.env.POSTGRES_URL,
