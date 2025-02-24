@@ -21,24 +21,27 @@ const authOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
+        console.log("Authorize called with:", credentials);
         const client = await pool.connect();
         try {
-          const result = await client.query(
-            "SELECT * FROM users WHERE email = $1",
-            [credentials.email]
-          );
+          const result = await client.query("SELECT * FROM users WHERE email = $1", [
+            credentials.email,
+          ]);
           if (result.rows.length === 0) {
-            throw new Error("User not found");
+            console.error("User not found for email:", credentials.email);
+            return null; // No user found: 401 Unauthorized.
           }
-
           const user = result.rows[0];
           const isValidPassword = await bcrypt.compare(credentials.password, user.password);
-
           if (!isValidPassword) {
-            throw new Error("Invalid credentials");
+            console.error("Password invalid for user:", credentials.email);
+            return null; // Invalid password: 401 Unauthorized.
           }
-
+          console.log("User authorized:", user);
           return { id: user.id, email: user.email, username: user.username };
+        } catch (error) {
+          console.error("Error in authorize function:", error);
+          return null;
         } finally {
           client.release();
         }
