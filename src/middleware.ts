@@ -10,6 +10,7 @@ const middleware: NextMiddleware = async (req) => {
 		"Access-Control-Allow-Headers",
 		"Content-Type, Authorization"
 	);
+	res.headers.set("Cache-Control", "no-store");
 
 	// ✅ Handle CORS Preflight Requests
 	if (req.method === "OPTIONS") {

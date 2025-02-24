@@ -13,10 +13,9 @@ const pool = new Pool({
 
 const authOptions = {
   session: { strategy: "jwt" as SessionStrategy },
-  adapter: null,
   providers: [
     CredentialsProvider({
-      name: "Email and Password",
+      name: "Credentials",
       credentials: {
         email: { label: "Email", type: "text" },
         password: { label: "Password", type: "password" },
@@ -64,17 +63,6 @@ const authOptions = {
       return session;
     },
   },
-  cookies: {
-    sessionToken: {
-      name: "next-auth.session-token",
-      options: {
-        httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
-        sameSite: "lax" as const, // ✅ Corrected to lowercase "lax"
-        path: "/",
-      },
-    },
-  },
   secret: process.env.NEXTAUTH_SECRET,
 };
 
@@ -82,4 +70,3 @@ const authOptions = {
 const handler = NextAuth(authOptions);
 
 export { handler as GET, handler as POST };
-
