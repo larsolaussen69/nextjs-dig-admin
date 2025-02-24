@@ -21,6 +21,7 @@ const authOptions = {
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials) {
+        console.log(pool)
         console.log("Authorize called with:", credentials);
         const client = await pool.connect();
         try {
