@@ -24,6 +24,7 @@ const authOptions = {
         console.log("Authorize called with:", credentials);
         const client = await pool.connect();
         try {
+          console.log("connected to database")
           const result = await client.query("SELECT * FROM users WHERE email = $1", [
             credentials.email,
           ]);
