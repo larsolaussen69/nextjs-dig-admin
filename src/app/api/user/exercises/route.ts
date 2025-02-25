@@ -13,6 +13,9 @@ export async function GET(request: Request) {
   const apiKey = request.headers.get('x-api-key');
   const validApiKey = process.env.API_KEY;
   
+  console.log('API Key:', apiKey);
+  console.log('Valid API Key:', validApiKey);
+
   if (apiKey !== validApiKey) {
     return new Response(JSON.stringify({ error: 'Unauthorized' }), {
       status: 401,
