@@ -30,6 +30,7 @@ export type UserExercise = {
     exercise_name: string;
     exercise_description: string;
     exercise_id: string | null;
+    link: string | null;
 };
 
 export type SplitCategory = {

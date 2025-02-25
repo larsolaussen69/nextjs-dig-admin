@@ -18,7 +18,8 @@ export async function getUserExercisesByEmail(email: string) {
                         'exercise_name', COALESCE(ue.custom_name, e.name),
                         'exercise_description', COALESCE(ue.custom_description, e.description),
                         'exercise_id', e.id,
-                        'user_id', ue.user_id
+                        'user_id', ue.user_id,
+                        'link', e.link
                     )
                 ) AS exercises
             FROM user_exercises ue
