@@ -11,7 +11,7 @@ export async function GET(request: Request) {
     return NextResponse.json({ success: false, error: 'User email is required' }, { status: 400 });
   }
   const apiKey = request.headers.get('x-api-key');
-  const validApiKey = process.env.API_SECRET;
+  const validApiKey = process.env.API_KEY;
   
   if (apiKey !== validApiKey) {
     return new Response(JSON.stringify({ error: 'Unauthorized' }), {
